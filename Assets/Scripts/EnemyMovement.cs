@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(SelfDestruct());
     }
 
     // Update is called once per frame
@@ -28,20 +29,10 @@ public class EnemyMovement : MonoBehaviour
         enemy.transform.position += direction * Time.deltaTime * speed;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        //Debug.Log("Enter trigger");
-        if (other.tag == "Endpoint")
-        {
-            Debug.Log("hit end");
-            Destroy(gameObject);
-        }
 
-        else if (other.tag == "Projectile")
-        {
-            Debug.Log("Hit by projectile");
-            Destroy(gameObject);
-            
-        }
+    IEnumerator SelfDestruct()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
     }
 }

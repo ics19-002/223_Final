@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveFloor : MonoBehaviour
 {
-    [SerializeField]private float speed = 3f;
+    [SerializeField]private float speed = 30f;
     private Vector3 startPos;
 
     // Start is called before the first frame update

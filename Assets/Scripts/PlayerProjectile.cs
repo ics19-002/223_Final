@@ -16,7 +16,7 @@ public class PlayerProjectile : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+            Instantiate(projectilePrefab, transform.position + new Vector3(0,1.5f,1), Quaternion.identity);
             
         }
         //transform.Translate(Vector3.forward * speed * Time.deltaTime);

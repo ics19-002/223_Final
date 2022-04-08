@@ -4,42 +4,42 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    
+    [SerializeField] private List<Transform> enemyPositions;
+    [SerializeField] private GameObject enemyPrefab;
     private bool spawn = true;
-    public Transform[] enemySpawnPoints = new Transform[5];
-    public GameObject[] enemies = new GameObject[3];
-    private int enemyIndex = 0;
 
-    public Transform getEnemySpawnPoints()
+    private void Start()
     {
-        int index = Random.Range(0, enemySpawnPoints.Length);
-        return enemySpawnPoints[index];
+        StartCoroutine(SpawnEnemy());
     }
 
-    public GameObject GetEnemy()
+    private IEnumerator SpawnEnemy()
     {
-        int index = Random.Range(0, enemies.Length);
-        return enemies[index];
-    }
-
-    public GameObject SpawnEnemies()
-    {
-        Transform spawnPoint = getEnemySpawnPoints();
-        GameObject enemy = GetEnemy();
-        GameObject e = Instantiate(enemy, spawnPoint.position, spawnPoint.rotation) as GameObject;
-        return e;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        enemyIndex = Random.Range(0, enemies.Length);
-        while (spawn) {
-            SpawnEnemies();
+        while (spawn)
+        {
+            if (enemyPrefab != null)
+            {
+                yield return new WaitForSeconds(5f);
+                Vector3 randomPos = GetRandomPosition();
+                GameObject newEnemy = Instantiate(enemyPrefab, randomPos, Quaternion.identity);
+            }
+            else
+            {
+                Debug.LogWarning("Enemy prefab not assigned.");
+            }
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private Vector3 GetRandomPosition()
     {
-        
+        if (enemyPositions.Count > 0)
+        {
+            return enemyPositions[Random.Range(0, enemyPositions.Count)].position;
+        } else
+        {
+            return Vector3.zero;
+        }
     }
+
 }
