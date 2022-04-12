@@ -18,9 +18,9 @@ public class MoveFloor : MonoBehaviour
     {
         Vector3 movement = Vector3.back * speed * Time.deltaTime;
         transform.Translate(movement);
-        if (transform.position.z < startPos.z - 300)
+        if (transform.position.z < startPos.z - 310)
         {
-            transform.position += new Vector3(0, 0, 300);
+            transform.position += new Vector3(0, 0, 310);
         }
     }
 }
