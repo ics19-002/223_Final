@@ -5,30 +5,31 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
 
-    public int currHealth = 0;
-    public int maxHealth = 3;
-   // public HealthBar healthBar;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] public float health, maxHealth;
+    [SerializeField] private Health healthBar;
+    public void TakeDamage()
     {
-        currHealth = maxHealth;
+        // Use your own damage handling code, or this example one.
+        health -= 0.1f;
+        healthBar.UpdateHealthBar();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        { 
+            TakeDamage();
+        }
     }
 
-
-    private void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        DamagePlayer(1);
-    }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    TakeDamage();
+        //}
+        maxHealth = 1f;
+        health = maxHealth;
+        TakeDamage();
 
-    public void DamagePlayer(int damage)
-    {
-        currHealth -= damage;
-        //healthBar.SetHealth(currHealth);
     }
 }
