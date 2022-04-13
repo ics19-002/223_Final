@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     
     [SerializeField] private List<Transform> enemyPositions;
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private List<GameObject> enemyPrefabs;
     private bool spawn = true;
 
     private void Start()
@@ -18,11 +18,11 @@ public class SpawnManager : MonoBehaviour
     {
         while (spawn)
         {
-            if (enemyPrefab != null)
+            if (enemyPrefabs != null)
             {
                 yield return new WaitForSeconds(5f);
                 Vector3 randomPos = GetRandomPosition();
-                GameObject newEnemy = Instantiate(enemyPrefab, randomPos, Quaternion.identity);
+                GameObject newEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Count)], randomPos, Quaternion.identity);
             }
             else
             {
