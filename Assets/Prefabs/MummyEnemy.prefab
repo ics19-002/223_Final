@@ -699,7 +699,7 @@ GameObject:
   - component: {fileID: 331780984034549230}
   m_Layer: 0
   m_Name: MummyEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -748,6 +748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particlePrefab: {fileID: 5260960199665107104, guid: efc6eb62876faf84e8988441ebe43d55, type: 3}
+  score: 0
 --- !u!54 &-8079226247465936233
 Rigidbody:
   m_ObjectHideFlags: 0
