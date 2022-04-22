@@ -732,7 +732,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480776c72e1032445895889979fd3613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 60
   enemy: {fileID: 4597175880477936769}
   target: {fileID: 1738438926945041374, guid: 68b13d989d0a79f45bbdfdf0065b9479, type: 3}
 --- !u!114 &-217689921740370041
@@ -776,8 +775,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.41814056
+  m_Center: {x: 0, y: -0.08185943, z: 0}
 --- !u!1 &4717929429264062246
 GameObject:
   m_ObjectHideFlags: 0

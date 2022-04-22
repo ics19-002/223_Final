@@ -5,21 +5,16 @@ using UnityEngine;
 public class PlayerProjectile : MonoBehaviour
 {
     [SerializeField]private GameObject projectilePrefab;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private PlayerMovement pm;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        
+        if (Input.GetKeyDown(KeyCode.Space) && pm.isActive)
         {
             Instantiate(projectilePrefab, transform.position + new Vector3(0,1.5f,1), Quaternion.identity);
             
         }
-        //transform.Translate(Vector3.forward * speed * Time.deltaTime);
-
     }
 }

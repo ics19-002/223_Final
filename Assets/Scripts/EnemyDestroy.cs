@@ -30,12 +30,19 @@ public class EnemyDestroy : MonoBehaviour
 
         }
 
-        
+        Explode();
+        Destroy(this.gameObject);
 
-        void Explode()
-        {
-            GameObject firework = Instantiate(particlePrefab, transform.position, Quaternion.identity);
-            firework.GetComponent<ParticleSystem>().Play();
-        }
+
+
+
     }
+
+    void Explode()
+    {
+        GameObject firework = Instantiate(particlePrefab, transform.position, Quaternion.identity);
+        firework.GetComponent<ParticleSystem>().Play();
+    }
+
+    
 }
